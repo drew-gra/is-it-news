@@ -11,7 +11,7 @@ export const POLITENESS = {
 export function userAgent(): string {
   return (
     process.env.IS_IT_NEWS_USER_AGENT ??
-    "IsItNewsBot/1.0 (+https://github.com/andrewgraham/is-it-news)"
+    "IsItNewsBot/1.0 (+https://github.com/drew-gra/is-it-news)"
   );
 }
 

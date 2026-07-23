@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Is It News? — by Bread &amp; Law</title>
+    <meta
+      name="description"
+      content="An open-source protocol for algorithmically separating news from everything else. Developed and maintained by Bread & Law."
+    />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@200,400,500&display=swap"
+    />
+    <style>
+      :root {
+        --color-black: #000000;
+        --color-gray-100: #f3f4f6;
+        --color-gray-400: #9ca3af;
+        --color-gray-600: #4b5563;
+        --color-gray-700: #374151;
+
+        --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+        --font-weight-body: 200;
+        --font-weight-label: 500;
+
+        --text-label: 11px;
+        --text-body: 16px;
+
+        --tracking-normal: 0.025em;
+        --tracking-label: 0.2em;
+        --tracking-wordmark: 0.3em;
+
+        --leading-body: 1.6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--color-black);
+        color: var(--color-gray-100);
+      }
+
+      body {
+        font-family: var(--font-sans);
+        font-weight: var(--font-weight-body);
+        font-size: var(--text-body);
+        line-height: var(--leading-body);
+        letter-spacing: var(--tracking-normal);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        min-height: 100vh;
+      }
+
+      ::selection {
+        background: var(--color-gray-700);
+        color: var(--color-gray-100);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      main {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 64px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+      }
+
+      @media (min-width: 640px) {
+        main {
+          padding: 96px 24px;
+        }
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .wordmark {
+        font-weight: var(--font-weight-label);
+        text-transform: uppercase;
+        letter-spacing: var(--tracking-wordmark);
+        color: var(--color-gray-600);
+      }
+
+      .wordmark a {
+        text-decoration: none;
+      }
+
+      .wordmark a:hover {
+        color: var(--color-gray-100);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .lede {
+        max-width: 65ch;
+        color: var(--color-gray-400);
+      }
+
+      .lede em {
+        font-style: italic;
+      }
+
+      .actions {
+        color: var(--color-gray-400);
+      }
+
+      .actions a,
+      .actions button {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .actions a:hover,
+      .actions button:hover {
+        color: var(--color-gray-100);
+      }
+
+      .actions button {
+        font: inherit;
+        letter-spacing: inherit;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      footer {
+        color: var(--color-gray-600);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      footer p {
+        align-self: center;
+      }
+
+      /* Licensing overlay */
+      .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 24px;
+      }
+
+      .overlay[data-open="true"] {
+        display: flex;
+      }
+
+      .overlay__panel {
+        max-width: 448px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border: 1px solid var(--color-gray-700);
+        background: var(--color-black);
+        padding: 32px;
+      }
+
+      .overlay__label {
+        font-weight: var(--font-weight-label);
+        text-transform: uppercase;
+        letter-spacing: var(--tracking-label);
+        font-size: var(--text-label);
+        color: var(--color-gray-600);
+      }
+
+      .overlay__body {
+        color: var(--color-gray-100);
+      }
+
+      .overlay__close {
+        align-self: flex-start;
+        font: inherit;
+        text-transform: uppercase;
+        letter-spacing: var(--tracking-label);
+        color: var(--color-gray-600);
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .overlay__close:hover {
+        color: var(--color-gray-100);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="wordmark">
+          <a
+            href="https://www.breadandlaw.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Bread &amp; Law</a
+          >
+          /
+          <a href=".">Is It News?</a>
+        </span>
+
+        <p class="lede">
+          Is It News? is an open-source protocol for algorithmically separating
+          news from everything else. It is developed and maintained by Bread
+          &amp; Law.
+        </p>
+
+        <p class="actions">
+          <a
+            href="https://github.com/drew-gra/is-it-news"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Technical Details</a
+          >
+          |
+          <button type="button" id="licensing-open">Licensing</button>
+        </p>
+      </header>
+
+      <footer>
+        <p>© 2026 Bread &amp; Law LLC</p>
+      </footer>
+    </main>
+
+    <div class="overlay" id="licensing-overlay" role="dialog" aria-modal="true" aria-labelledby="licensing-title">
+      <div class="overlay__panel">
+        <h3 class="overlay__label" id="licensing-title">Licensing</h3>
+        <p class="overlay__body">
+          Is It News? is released under the MIT License — build on it freely.
+          Use, modify, and redistribute it, including commercially. If you
+          improve it, credit Andrew Graham.
+        </p>
+        <button type="button" class="overlay__close" id="licensing-close">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var overlay = document.getElementById("licensing-overlay");
+        var openBtn = document.getElementById("licensing-open");
+        var closeBtn = document.getElementById("licensing-close");
+
+        function open() {
+          overlay.setAttribute("data-open", "true");
+        }
+        function close() {
+          overlay.removeAttribute("data-open");
+        }
+
+        openBtn.addEventListener("click", open);
+        closeBtn.addEventListener("click", close);
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) close();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") close();
+        });
+      })();
+    </script>
+  </body>
+</html>
