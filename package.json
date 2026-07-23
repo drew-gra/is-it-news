@@ -1,0 +1,56 @@
+{
+  "name": "is-it-news",
+  "version": "0.1.0",
+  "description": "Decide, from a URL alone, whether a site is a news outlet. A transparent, structural news-outlet classifier.",
+  "license": "MIT",
+  "author": "Andrew Graham",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "METHODOLOGY.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "news",
+    "classifier",
+    "url",
+    "journalism",
+    "media",
+    "rss",
+    "web-scraping"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "classify": "tsx scripts/classify.ts",
+    "diag": "tsx scripts/l0-diag.ts",
+    "triage": "tsx scripts/triage.ts",
+    "sweep": "tsx scripts/l0-feed-sweep.ts",
+    "simulate": "tsx scripts/l0-simulate.ts",
+    "score": "tsx scripts/l0-score.ts"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "tsx": "^4.21.0",
+    "typescript": "^5",
+    "vitest": "^4.1.7"
+  }
+}
