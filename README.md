@@ -65,8 +65,12 @@ gates, and thresholds.
 
 ## Install
 
+`is-it-news` is not published to npm. Clone it and run it:
+
 ```bash
-npm install is-it-news
+git clone https://github.com/drew-gra/is-it-news.git
+cd is-it-news
+npm install
 ```
 
 Requires Node 20+.
@@ -74,6 +78,9 @@ Requires Node 20+.
 ## Usage
 
 ### Library
+
+To use it from another project, build the clone (`npm run build`) and install
+it by path (`npm install ../is-it-news`). The import then resolves:
 
 ```ts
 import { classify } from "is-it-news";
@@ -137,7 +144,7 @@ distinguishes itself by being honest about what's knowable from public signals.
 ## Provenance
 
 The algorithm began life as the preflight ("is this even a news outlet?")
-gate inside [Cited](https://breadandlaw.com/cited), a tool that assesses
+gate inside [Cited](https://tools.breadandlaw.com/cited), a tool that assesses
 whether an outlet's content is accessible to AI platforms. It's been extracted
 here as a standalone, dependency-light library.
 
