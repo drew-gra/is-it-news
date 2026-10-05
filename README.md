@@ -60,8 +60,10 @@ roughly two dozen structural signals — schema markup, section navigation,
 newsroom pages, byline diversity, publishing cadence, hosting platform,
 commerce fingerprints, and feed editorial scale — into a single score.
 
-See **[METHODOLOGY.md](./METHODOLOGY.md)** for the full signal list, weights,
-gates, and thresholds.
+The signals, weights, gates, and thresholds are in the code:
+[`src/preflight.ts`](./src/preflight.ts) (scoring) and
+[`src/preflight-verdicts.ts`](./src/preflight-verdicts.ts) (thresholds). The
+source is the reference.
 
 ## Install
 
@@ -125,8 +127,7 @@ the decision thresholds.
 
 ## Honest limitations
 
-This is a structural heuristic, not an oracle. Known soft spots (see
-METHODOLOGY for detail):
+This is a structural heuristic, not an oracle. Known soft spots:
 
 - **Solo publications.** A serious one-person outlet with no discoverable feed
   can't be distinguished from a personal blog on structure alone. Separating

@@ -930,7 +930,7 @@ async function resolveNewsOrgType(
   }
 }
 
-// Scoring tables. Centralized so the methodology page can describe them
+// Scoring tables. Centralized so they can be read in one place
 // and so changes are visible in one diff. Positive weights = news-like;
 // negative = not-news-like. Thresholds live in preflight-verdicts.ts.
 // Exported (pure, no I/O) so the signal gating can be unit-tested without the
